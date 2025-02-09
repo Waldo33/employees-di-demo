@@ -1,11 +1,11 @@
-import { selectAllEmployees, useEmployeesActions } from "../store/employeesSlice";
+import { selectAllEmployees, selectEmployeesError, selectEmployeesIsLoading, useEmployeesActions } from "../store/employeesSlice";
 import { useEffect } from "react";
 import { useAppSelector } from "../hooks/useAppSelector";
 
 const useEmployeesList = () => {
     const employees = useAppSelector(selectAllEmployees);
-    const isLoading = useAppSelector((state) => state.employees.isLoading);
-    const error = useAppSelector((state) => state.employees.error);
+    const isLoading = useAppSelector(selectEmployeesIsLoading);
+    const error = useAppSelector(selectEmployeesError);
 
     return {
         employees, isLoading, error

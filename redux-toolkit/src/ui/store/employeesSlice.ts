@@ -48,6 +48,9 @@ export const {
     selectAll: selectAllEmployees,
 } = employeeAdapter.getSelectors<RootState>((state) => state.employees);
 
+export const selectEmployeesIsLoading = (state: RootState) => state.employees.isLoading;
+export const selectEmployeesError = (state: RootState) => state.employees.error;
+
 
 export const useEmployeesActions = () => {
     const dispatch = useAppDispatch();
